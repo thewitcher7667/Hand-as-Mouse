@@ -1,0 +1,5 @@
+hand_labels/
+hand_labels.zip
+images/
+*.idea
+__pycache__
