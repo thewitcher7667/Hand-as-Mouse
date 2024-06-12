@@ -12,7 +12,7 @@ trainDataPath = mainPath + "/manual_train"
 testDataPath = mainPath + "/manual_test"
 baseShape = (1280, 720, 3)
 newBaseShape = (1080, 1920, 3)
-resized_shape = (224,224)
+resized_shape = (244,244)
 
 #What i nedd from the data AKA clasees
 #1 - hand_box_center
@@ -28,9 +28,11 @@ def __addData(startIndex, endIndex, labels, images, path):
             jsonPath = f.rsplit('.', 1)[0]  + "." + "json"
 
             img = np.array(iio.v3.imread(f))
+            #if(img.shape != (576,720,3)):
+             #   continue;
             img_shape = img.shape 
             img_resized = tf.image.resize(img.copy(),resized_shape,method='nearest')
-            
+            #img_resized = tf.image.rgb_to_grayscale(img_resized)
             json_file_open = open(jsonPath)
             json_file = json.load(json_file_open)["hand_pts"]
             json_file_open.close()

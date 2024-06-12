@@ -3,3 +3,4 @@ hand_labels.zip
 images/
 *.idea
 __pycache__
+.vs
